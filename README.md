@@ -1,16 +1,47 @@
-# React + Vite
+# 🖥️ Retro-OS-Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based interactive portfolio designed to mimic a retro graphical operating system. Built with React and Tailwind CSS, this project serves as a creative, interactive showcase for full-stack and hardware development projects.
 
-Currently, two official plugins are available:
+**Status:** 🚧 Work in Progress
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Current Features
+* **Authentic Boot Sequence:** A realistic, retro-style terminal initialization screen.
+* **Dynamic Typing Effect:** Utilizes recursive `setTimeout` functions to simulate the unpredictable, stuttering text-rendering speed of vintage hardware.
+* **Stateful Progress Tracking:** A visual loading bar that maps perfectly to the executed logs.
+* **HMR Safe:** Custom state-reset logic to prevent array duplication during Vite's Hot Module Replacement.
 
-## React Compiler
+## 🚀 Tech Stack
+* **Framework:** React (via Vite)
+* **Styling:** Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🗺️ Roadmap
+* [x] Core Boot Sequence & Loading Animation
+* [ ] Main Desktop GUI Environment
+* [ ] Draggable Application Windows (Projects, About, Contact)
+* [ ] Interactive Terminal Interface
+* [ ] Mobile Responsiveness Optimization
 
-## Expanding the ESLint configuration
+## 🛠️ Local Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run this project locally on your machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Aman22112005/Retro-OS-Portfolio](https://github.com/Aman22112005/Retro-OS-Portfolio)
+   ```
+
+2. **Navigate to directory:**
+    ```bash
+    cd Retro-Os-Portfolio
+    ```
+
+3. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+4. **Start the development server**
+    ```bash
+    npm run dev
+    ```    
+developed by Aman Singh Bisht
