@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  /* Your custom Retro OS Color Palette */
+  --color-os-base: #080808;
+  --color-os-window: #121212;
+  --color-os-taskbar: #27272a;
+  --color-os-border: #3f3f46;
+  --color-os-green: #39ff14;
+  --color-os-amber: #ffb000;
+  --color-os-muted: #a1a1aa;
+  --color-os-cyan: #00ffff;
+  --color-os-error: #ff003c;
+
+  /* Forces standard monospace fonts */
+  --font-mono: "Fira Code", "Cascadia Code", monospace;
+}
+
+/* Set the entire app's background and default font here */
+@layer base {
+  body {
+    @apply bg-os-base text-os-green font-mono overflow-hidden;
+  }
+}
+
