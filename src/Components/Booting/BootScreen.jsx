@@ -78,7 +78,7 @@ const BootScreen = ({ onBootComplete }) => {
 
   return (
     <>
-      <div className="bg-os-base text-os-green flex h-screen w-full flex-col justify-between p-6 font-mono">
+      <div className="bg-os-base text-os-green flex h-screen w-full flex-col justify-between p-6 font-mono cursor-none">
         {/* TOP SECTION */}
         <div>
           {/* 1. Fully typed lines */}

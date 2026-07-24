@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Your custom Retro OS Color Palette */
+  /* --- Terminal / Boot Screen Palette --- */
   --color-os-base: #080808;
   --color-os-window: #121212;
   --color-os-taskbar: #27272a;
@@ -9,8 +9,19 @@
   --color-os-green: #39ff14;
   --color-os-amber: #ffb000;
   --color-os-muted: #a1a1aa;
-  --color-os-cyan: #00ffff;
   --color-os-error: #ff003c;
+
+  /* --- Windows 95 GUI Palette --- */
+  --color-os-teal: #008080;         /* Classic desktop background */
+  --color-os-gray: #c0c0c0;         /* Standard window and taskbar face */
+  --color-os-gray-dark: #808080;    /* Border shadows */
+  --color-os-gray-darker: #404040;  /* Deep shadow for buttons */
+  --color-os-title-blue: #000080;   /* Active window title bar */
+  
+  /* --- Brand / Icon Colors --- */
+  --color-os-cyan: #00ffff;
+  --color-os-magenta: #ff00ff;
+  --color-os-yellow: #ffff00;
 
   /* Forces standard monospace fonts */
   --font-mono: "Fira Code", "Cascadia Code", monospace;
@@ -21,5 +32,11 @@
   body {
     @apply bg-os-base text-os-green font-mono overflow-hidden;
   }
+}
+
+body {
+  /* Prevents text highlighting everywhere in the app */
+  user-select: none; 
+  -webkit-user-select: none; /* Safari support */
 }
 
