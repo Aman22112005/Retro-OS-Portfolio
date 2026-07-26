@@ -5,12 +5,8 @@ const BootScreen = ({ onBootComplete, bootMenu }) => {
 
   const inputAllowed = useRef(false);
 
-  /**
-   *
-   * @param {KeyboardEvent} e
-   */
-
   useEffect(() => {
+    /** @param {KeyboardEvent} e */
     const captureKey = (e) => {
       if (inputAllowed) {
         if (e.key == "Enter") {
@@ -57,7 +53,7 @@ const BootScreen = ({ onBootComplete, bootMenu }) => {
   }, []);
 
   return (
-    <div className="h-screen w-screen bg-black p-4 font-mono text-sm whitespace-pre-wrap text-white">
+    <div className="h-screen w-screen cursor-none bg-black p-4 font-mono text-sm whitespace-pre-wrap text-white">
       {logs.map((log, index) => (
         <div key={index}>{log}</div>
       ))}

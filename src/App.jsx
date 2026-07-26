@@ -3,9 +3,11 @@ import BootScreen from "./Components/Booting/BootScreen2";
 import ComingSoon from "./Components/coming soon/ComingSoon";
 import Loading from "./Components/Booting/loading/Loading";
 import Desktop from "./Components/OS/Desktop/Desktop";
+import { Accounts } from "./Components/Booting/accounts/Accounts";
 
 const App = () => {
   const [Page, setPage] = useState("boot");
+  const [accountType, setaccountType] = useState(null);
 
   /**
    *
@@ -17,7 +19,7 @@ const App = () => {
 
   if (Page == "boot") {
     return (
-      <div onClick={(e) => OnRightClick(e)}>
+      <div onContextMenu={(e) => OnRightClick(e)}>
         <BootScreen
           onBootComplete={() => {
             setPage("loading");
@@ -32,7 +34,7 @@ const App = () => {
 
   if (Page == "bootmenu") {
     return (
-      <div>
+      <div onContextMenu={(e) => OnRightClick(e)}>
         <ComingSoon />
       </div>
     );
@@ -40,16 +42,42 @@ const App = () => {
 
   if (Page == "loading") {
     return (
-      <div onClick={(e) => OnRightClick(e)}>
-        <Loading onLoadingComplete={() => setPage("desktop")} />
+      <div onContextMenu={(e) => OnRightClick(e)}>
+        <Loading onLoadingComplete={() => setPage("accounts")} />
+      </div>
+    );
+  }
+
+  if (Page == "accounts") {
+    return (
+      <div onContextMenu={(e) => OnRightClick(e)}>
+        <Accounts
+          onLogin={(account_type) => {
+            setaccountType(account_type);
+
+            if (account_type === "admin") {
+              setPage("Password");
+            } else {
+              setPage("desktop");
+            }
+          }}
+        />
+      </div>
+    );
+  }
+
+  if (Page == "Password") {
+    return (
+      <div onContextMenu={(e) => OnRightClick(e)}>
+        <ComingSoon />
       </div>
     );
   }
 
   if (Page == "desktop") {
     return (
-      <div onClick={(e) => OnRightClick(e)}>
-        <Desktop />
+      <div onContextMenu={(e) => OnRightClick(e)}>
+        <Desktop accounttype={accountType} />
       </div>
     );
   }
