@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import BootScreen from "./Components/Booting/BootScreen";
+import BootScreen from "./Components/Booting/BootScreen2";
 import ComingSoon from "./Components/coming soon/ComingSoon";
 import Loading from "./Components/Booting/loading/Loading";
 import Desktop from "./Components/OS/Desktop/Desktop";
 
 const App = () => {
-  const [isbooting, setIsbooting] = useState(true);
-  const [isloading, setIsloading] = useState(false);
+  const [Page, setPage] = useState("boot");
 
   /**
    *
@@ -16,32 +15,44 @@ const App = () => {
     e.preventDefault();
   };
 
-  if (isbooting) {
+  if (Page == "boot") {
     return (
       <div onClick={(e) => OnRightClick(e)}>
         <BootScreen
           onBootComplete={() => {
-            setIsbooting(false);
-            setIsloading(true);
+            setPage("loading");
+          }}
+          bootMenu={() => {
+            setPage("bootmenu");
           }}
         />
       </div>
     );
   }
 
-  if (!isbooting && isloading) {
+  if (Page == "bootmenu") {
     return (
-      <div onClick={(e) => OnRightClick(e)}>
-        <Loading onLoadingComplete={() => setIsloading(false)} />
+      <div>
+        <ComingSoon />
       </div>
     );
   }
 
-  return (
-    <div onClick={(e) => OnRightClick(e)}>
-      <Desktop />
-    </div>
-  );
+  if (Page == "loading") {
+    return (
+      <div onClick={(e) => OnRightClick(e)}>
+        <Loading onLoadingComplete={() => setPage("desktop")} />
+      </div>
+    );
+  }
+
+  if (Page == "desktop") {
+    return (
+      <div onClick={(e) => OnRightClick(e)}>
+        <Desktop />
+      </div>
+    );
+  }
 };
 
 export default App;
