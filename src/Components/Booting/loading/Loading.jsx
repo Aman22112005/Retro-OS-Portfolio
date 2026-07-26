@@ -3,7 +3,7 @@ import asbLogo from "../../../assets/logo.png";
 
 const Loading = ({ onLoadingComplete }) => {
   (useEffect(() => {
-    let completionTimeout = setTimeout(() => onLoadingComplete(), 2000);
+    let completionTimeout = setTimeout(() => onLoadingComplete(), 4000);
 
     return () => clearTimeout(completionTimeout);
   }),
