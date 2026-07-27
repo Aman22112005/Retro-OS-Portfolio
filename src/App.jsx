@@ -4,6 +4,7 @@ import ComingSoon from "./Components/coming soon/ComingSoon";
 import Loading from "./Components/Booting/loading/Loading";
 import Desktop from "./Components/OS/Desktop/Desktop";
 import { Accounts } from "./Components/Booting/accounts/Accounts";
+import { Password } from "./Components/Booting/accounts/Password";
 
 const App = () => {
   const [Page, setPage] = useState("boot");
@@ -35,7 +36,7 @@ const App = () => {
   if (Page == "bootmenu") {
     return (
       <div onContextMenu={(e) => OnRightClick(e)}>
-        <ComingSoon />
+        <ComingSoon goBack={() => setPage("boot")}/>
       </div>
     );
   }
@@ -50,7 +51,7 @@ const App = () => {
 
   if (Page == "accounts") {
     return (
-      <div onContextMenu={(e) => OnRightClick(e)}>
+      <div onContextMenu={(e) => OnRightClick(e)} className="animate-fade-in">
         <Accounts
           onLogin={(account_type) => {
             setaccountType(account_type);
@@ -66,10 +67,25 @@ const App = () => {
     );
   }
 
+  
   if (Page == "Password") {
     return (
       <div onContextMenu={(e) => OnRightClick(e)}>
-        <ComingSoon />
+        <Password
+          onCorrect={() => {
+            setPage("desktop");
+            setaccountType("admin");
+          }}
+          onSwitch={() => setPage("accounts")}
+        />
+      </div>
+    );
+  }
+
+  if (accountType == "admin") {
+    return (
+      <div>
+        <ComingSoon goBack={() => setPage("accounts")}/>
       </div>
     );
   }

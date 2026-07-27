@@ -30,7 +30,7 @@
 /* Set the entire app's background and default font here */
 @layer base {
   body {
-    @apply bg-os-base text-os-green font-mono overflow-hidden;
+    @apply bg-os-base font-mono overflow-hidden;
   }
 }
 
@@ -40,3 +40,20 @@ body {
   -webkit-user-select: none; /* Safari support */
 }
 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.5s ease-in-out forwards;
+}
