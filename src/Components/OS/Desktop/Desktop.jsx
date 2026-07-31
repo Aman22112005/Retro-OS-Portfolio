@@ -5,6 +5,9 @@ import floppy from "../../../assets/floppy_drive.ico";
 import directory from "../../../assets/directory.ico";
 import user from "../../../assets/user.ico";
 import browser from "../../../assets/browser.ico";
+import WindowFrame from "../Windows/frame";
+import Draggable from "react-draggable";
+import { Resizable } from "react-resizable";
 
 const DesktopIcon = ({ icon_src, label }) => {
   return (
@@ -19,15 +22,23 @@ const DesktopIcon = ({ icon_src, label }) => {
 
 const Desktop = () => {
   return (
-    <div className="bg-os-teal flex h-screen w-screen flex-col justify-between overflow-hidden">
-      <div className="m-3 flex h-[calc(100vh-48px)] flex-col flex-wrap content-start items-start gap-1">
-        <DesktopIcon icon_src={user} label="WhoAmI" />
-        <DesktopIcon icon_src={floppy} label="My Projects" />
-        <DesktopIcon icon_src={browser} label="Browser" />
-        <DesktopIcon icon_src={directory} label="Portfolio" />
-        <DesktopIcon icon_src={recycle_bin} label="Recycle bin" />
+    <div className="bg-os-teal relative flex h-screen w-screen flex-col justify-between overflow-hidden">
+      <div className="absolute">
+        <WindowFrame />
       </div>
-      <Taskbar />
+
+      <div>
+        <div className="m-3 flex h-[calc(100vh-48px)] flex-col flex-wrap content-start items-start gap-1">
+          <DesktopIcon icon_src={user} label="WhoAmI" />
+          <DesktopIcon icon_src={floppy} label="My Projects" />
+          <DesktopIcon icon_src={browser} label="Browser" />
+          <DesktopIcon icon_src={directory} label="Portfolio" />
+          <DesktopIcon icon_src={recycle_bin} label="Recycle bin" />
+        </div>
+      </div>
+      <div className="absolute bottom-0">
+        <Taskbar />
+      </div>
     </div>
   );
 };
